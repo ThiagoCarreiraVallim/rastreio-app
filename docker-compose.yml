@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  nest:
+    build: nestjs/
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./nestjs:/home/node/app
+  
+  redis:
+    image: redis:7.0.8-alpine
+
+  next:
+    build: nextjs/
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./nextjs:/home/node/app
+
